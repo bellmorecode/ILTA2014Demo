@@ -1,6 +1,8 @@
 ﻿using Microsoft.SharePoint.Client;
+using MSDN.Samples.ClaimsAuth;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Dynamic;
 using System.Linq;
 using System.Security;
@@ -15,11 +17,14 @@ namespace DemoWebApp.Controllers
         {
             // Get Announcements List from SharePoint Online
             // instantiate client context
-            ClientContext clientContext = new ClientContext("https://somethingdigital.sharepoint.com/sites/spdev");   
-             
+            var url = "https://somethingdigital.sharepoint.com/sites/spdev";
+            ClientContext clientContext = new ClientContext(url);   
+            
+            var pwd = ConfigurationManager.AppSettings["password"];
+
             // encode password and set credentials
             SecureString passWord = new SecureString();
-            foreach (char c in "yourpassword".ToCharArray()) passWord.AppendChar(c);
+            foreach (char c in pwd.ToCharArray()) passWord.AppendChar(c);
             clientContext.Credentials = new SharePointOnlineCredentials("administrator@somethingdigital.onmicrosoft.com", passWord);
 
             // Get Lists from SharePoint
