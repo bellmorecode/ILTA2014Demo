@@ -1,5 +1,4 @@
 ﻿using Microsoft.SharePoint.Client;
-using MSDN.Samples.ClaimsAuth;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,13 +18,14 @@ namespace DemoWebApp.Controllers
             // instantiate client context
             var url = "https://somethingdigital.sharepoint.com/sites/spdev";
             ClientContext clientContext = new ClientContext(url);   
-            
+
+            var user = ConfigurationManager.AppSettings["userlogin"];
             var pwd = ConfigurationManager.AppSettings["password"];
 
             // encode password and set credentials
             SecureString passWord = new SecureString();
             foreach (char c in pwd.ToCharArray()) passWord.AppendChar(c);
-            clientContext.Credentials = new SharePointOnlineCredentials("administrator@somethingdigital.onmicrosoft.com", passWord);
+            clientContext.Credentials = new SharePointOnlineCredentials(user, passWord);
 
             // Get Lists from SharePoint
             Web oWeb = clientContext.Web;
