@@ -23,12 +23,11 @@ namespace DemoWebApp.Controllers
             var user = ConfigurationManager.AppSettings["userlogin"];
             var pwd = ConfigurationManager.AppSettings["password"];
 
-
-
             // encode password and set credentials
             SecureString passWord = new SecureString();
             foreach (char c in pwd.ToCharArray()) passWord.AppendChar(c);
             clientContext.Credentials = new SharePointOnlineCredentials(user, passWord);
+            
 
             // Get Lists from SharePoint
             Web oWeb = clientContext.Web;
