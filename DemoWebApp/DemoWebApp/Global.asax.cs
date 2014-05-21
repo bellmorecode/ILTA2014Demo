@@ -32,6 +32,7 @@ namespace DemoWebApp
         {
             if (!Context.Request.IsAuthenticated)
             {
+                // only add https if its not there already
                 if (Context.Request.Url.ToString().Contains("http:"))
                 {
                     Response.Redirect(Context.Request.Url.ToString().Replace("http:", "https:"));

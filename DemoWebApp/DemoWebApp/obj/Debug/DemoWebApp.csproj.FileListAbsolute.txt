@@ -1,4 +1,3 @@
-C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\obj\Debug\DemoWebApp.csprojResolveAssemblyReference.cache
 C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\bin\DemoWebApp.dll.config
 C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\bin\DemoWebApp.dll
 C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\bin\DemoWebApp.pdb
