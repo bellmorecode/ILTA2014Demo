@@ -27,5 +27,17 @@ namespace DemoWebApp
                 e.SignInRequestMessage.Realm = IdentityConfig.Realm;
             }
         }
+
+        protected void Application_BeginRequest()
+        {
+            if (!Context.Request.IsAuthenticated)
+            {
+                if (Context.Request.Url.ToString().Contains("http:"))
+                {
+                    Response.Redirect(Context.Request.Url.ToString().Replace("http:", "https:"));
+                }
+                
+            }
+        }
     }
 }
