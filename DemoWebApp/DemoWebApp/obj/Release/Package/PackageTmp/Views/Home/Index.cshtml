@@ -16,7 +16,10 @@
         <ul>
             @foreach (Announcement item in Model.Announcements)
             {
-                <li>@item.Title</li>
+                <li>
+                    <h4>@item.Title</h4>
+                     @MvcHtmlString.Create(item.Body)
+                </li>
             }
         </ul>
 
@@ -33,8 +36,21 @@
         <p><a class="btn btn-default" href="https://somethingdigital.sharepoint.com/sites/spdev/_layouts/15/start.aspx#/Shared%20Documents/Forms/AllItems.aspx" target="_blank">Go to the Library &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Azure Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://azure.microsoft.com/en-us/" target="_blank">Learn more &raquo;</a></p>
+        <h2><a href="https://outlook.office365.com/owa/?wa=wsignin1.0#path=/tasks" target="_blank">Tasks</a></h2>
+        <ul>
+            @foreach (EWSTask item in Model.Tasks)
+            {
+                <li>
+                    <span>
+                        <span class="taskSubject">@item.Subject</span>
+                        <br />
+                        @string.Format("Due: {0:MM/dd/yyyy}", item.DueDate)
+                    </span>
+                </li>
+            }
+        </ul>
+
+        <p><a class="btn btn-default" href="https://outlook.office365.com/owa/?wa=wsignin1.0#path=/tasks" target="_blank">Go to the List &raquo;</a></p>
     </div>
+
 </div>

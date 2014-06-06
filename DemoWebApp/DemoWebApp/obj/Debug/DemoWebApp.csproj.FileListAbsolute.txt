@@ -33,3 +33,5 @@ C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\bin\Microsoft.AspNet.Identity.EntityF
 C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\obj\Debug\DemoWebApp.dll
 C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\obj\Debug\DemoWebApp.pdb
 C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\obj\Debug\DemoWebApp.csprojResolveAssemblyReference.cache
+C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\bin\Microsoft.Exchange.WebServices.dll
+C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\bin\Microsoft.Exchange.WebServices.xml

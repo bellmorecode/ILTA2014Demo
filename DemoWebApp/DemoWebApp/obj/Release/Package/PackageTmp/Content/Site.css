@@ -15,3 +15,13 @@ select,
 textarea {
     max-width: 280px;
 }
+
+h4 { color: #008cba; }
+
+li { list-style-type: none; }
+
+.taskSubject { color: #008cba; font-size: 1.2em; }
+
+.jumbotron { padding-bottom: 0px; margin-bottom: 0px; }
+
+.LOGO { float: left; margin-right: -5px; margin-left: -42px; padding-top: 5px; padding-bottom: 5px; }

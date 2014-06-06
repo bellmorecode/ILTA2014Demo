@@ -36,7 +36,21 @@
         <p><a class="btn btn-default" href="https://somethingdigital.sharepoint.com/sites/spdev/_layouts/15/start.aspx#/Shared%20Documents/Forms/AllItems.aspx" target="_blank">Go to the Library &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        
-        
+        <h2><a href="https://outlook.office365.com/owa/?wa=wsignin1.0#path=/tasks" target="_blank">Tasks</a></h2>
+        <ul>
+            @foreach (EWSTask item in Model.Tasks)
+            {
+                <li>
+                    <span>
+                        <span class="taskSubject">@item.Subject</span>
+                        <br />
+                        @string.Format("Due: {0:MM/dd/yyyy}", item.DueDate)
+                    </span>
+                </li>
+            }
+        </ul>
+
+        <p><a class="btn btn-default" href="https://outlook.office365.com/owa/?wa=wsignin1.0#path=/tasks" target="_blank">Go to the List &raquo;</a></p>
     </div>
+
 </div>

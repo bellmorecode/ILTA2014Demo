@@ -14,6 +14,7 @@ namespace DemoWebApp.Models
         }
         public List<Announcement> Announcements { get; set; }
         public List<Document> Documents { get; set; }
+        public List<EWSTask> Tasks { get; set; }
     }
 
     public class Announcement
@@ -26,5 +27,11 @@ namespace DemoWebApp.Models
     {
         public string Title { get; set; }
         public string Url { get; set; }
+    }
+
+    public class EWSTask
+    {
+        public string Subject { get; set; }
+        public DateTime? DueDate { get; set; }
     }
 }
