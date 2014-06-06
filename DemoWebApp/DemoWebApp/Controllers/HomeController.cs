@@ -16,7 +16,7 @@ namespace DemoWebApp.Controllers
         public ActionResult Index()
         {
             // Get Announcements List from SharePoint Online
-            // instantiate client context
+            #region Auth Stuff
             var url = "https://somethingdigital.sharepoint.com/sites/spdev";
             ClientContext clientContext = new ClientContext(url);   
 
@@ -27,7 +27,7 @@ namespace DemoWebApp.Controllers
             SecureString passWord = new SecureString();
             foreach (char c in pwd.ToCharArray()) passWord.AppendChar(c);
             clientContext.Credentials = new SharePointOnlineCredentials(user, passWord);
-            
+            #endregion
 
             // Get Lists from SharePoint
             Web oWeb = clientContext.Web;
@@ -39,7 +39,7 @@ namespace DemoWebApp.Controllers
 
             // Get Items from Announcements List
             var announcementsList = oListCollection.First(q => q.EntityTypeName == "ILTA_x0020_AnnouncementsList");
-            var items = announcementsList.GetItems(new CamlQuery { ViewXml = "<View><ViewFields  ><FieldRef Name='Title' /></ViewFields></View>" });
+            var items = announcementsList.GetItems(new CamlQuery { ViewXml = "<View><ViewFields  ><FieldRef Name='Title' /><FieldRef Name='Body' /></ViewFields></View>" });
             clientContext.Load(items);
             clientContext.ExecuteQuery();
 
@@ -51,7 +51,7 @@ namespace DemoWebApp.Controllers
 
             // create View Model
             var model = new Models.HomeViewModel();
-            model.Announcements = items.Select(q => new Announcement { Title = q.FieldValues["Title"].ToString() }).ToList();
+            model.Announcements = items.Select(q => new Announcement { Title = q.FieldValues["Title"].ToString(), Body = q.FieldValues["Body"].ToString() }).ToList();
             model.Documents = docs.Select(q => new Document { Title = q.FieldValues["FileLeafRef"].ToString(), Url = string.Format("{0}{1}", "https://somethingdigital.sharepoint.com", q.FieldValues["FileRef"].ToString())  }).ToList();
             return View(model);
         }

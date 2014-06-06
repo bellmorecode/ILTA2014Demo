@@ -16,7 +16,10 @@
         <ul>
             @foreach (Announcement item in Model.Announcements)
             {
-                <li>@item.Title</li>
+                <li>
+                    <h4>@item.Title</h4>
+                     @MvcHtmlString.Create(item.Body)
+                </li>
             }
         </ul>
 

@@ -32,3 +32,4 @@ C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\bin\Microsoft.AspNet.Identity.Core.xm
 C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\obj\Debug\DemoWebApp.dll
 C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\obj\Debug\DemoWebApp.pdb
+C:\_git\ILTA2014Demo\DemoWebApp\DemoWebApp\obj\Debug\DemoWebApp.csprojResolveAssemblyReference.cache

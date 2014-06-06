@@ -19,6 +19,7 @@ namespace DemoWebApp.Models
     public class Announcement
     {
         public string Title { get; set; }
+        public string Body { get; set; }
     }
 
     public class Document
