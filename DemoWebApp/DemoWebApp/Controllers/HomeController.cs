@@ -24,6 +24,12 @@ namespace DemoWebApp.Controllers
             var user = ConfigurationManager.AppSettings["userlogin"];
             var pwd = ConfigurationManager.AppSettings["password"];
 
+            #if PASSWORD_HACK
+            // go grab the real password from my desktop
+            // for testing purposes only. 
+            pwd = System.IO.File.ReadAllText(@"c:\password.txt");
+            #endif
+
             // encode password and set credentials
             SecureString passWord = new SecureString();
             foreach (char c in pwd.ToCharArray()) passWord.AppendChar(c);
