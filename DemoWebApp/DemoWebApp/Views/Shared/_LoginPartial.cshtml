@@ -1,14 +1,21 @@
-﻿@if (Request.IsAuthenticated)
+﻿@{ 
+    var shortname = User.Identity.Name;
+    if (shortname.Contains("@")) { 
+        shortname = shortname.Substring(0, shortname.IndexOf("@"));
+    }
+}
+
+@if (Request.IsAuthenticated)
 {
     <text>
     <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-text">
-            Hello, @User.Identity.Name!
-        </li>
-        <li>
-            @Html.ActionLink("Sign out", "SignOut", "Account")
-        </li>
-    </ul>
+    <li class="navbar-text">
+        Hello, @shortname!
+    </li>
+    <li>
+        @Html.ActionLink("Sign out", "SignOut", "Account")
+    </li>
+</ul>
     </text>
 }
 else
